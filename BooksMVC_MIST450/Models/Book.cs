@@ -9,7 +9,7 @@ namespace BooksMVC_MIST450.Models
 
         [Key] //This tells the compiler that this is the primary key for the table (only above this attribute (BookId))
         public int BookId { get; set; }
-        public string Name { get; set; } //date type is string, varible name is Name
+        public string Title { get; set; } //date type is string, varible name is Name
         public string Description { get; set; }
         public string Author { get; set; }
         public DateTime DatePublished { get; set; }
