@@ -95,3 +95,4 @@
 /Users/kaylamatey/MIST 450 VSCODE /BooksMVC_MIST450/BooksMVC_MIST450/obj/Debug/net10.0/BooksMVC_MIST450.pdb
 /Users/kaylamatey/MIST 450 VSCODE /BooksMVC_MIST450/BooksMVC_MIST450/obj/Debug/net10.0/BooksMVC_MIST450.genruntimeconfig.cache
 /Users/kaylamatey/MIST 450 VSCODE /BooksMVC_MIST450/BooksMVC_MIST450/obj/Debug/net10.0/ref/BooksMVC_MIST450.dll
+/Users/kaylamatey/MIST 450 VSCODE /BooksMVC_MIST450/BooksMVC_MIST450/obj/Debug/net10.0/BooksMVC_MIST450.sourcelink.json
