@@ -1,5 +1,7 @@
+using BooksMVC_MIST450.Models;
 using BooksMVC_MIST450.Data;
 using Microsoft.AspNetCore.Mvc;
+
 
 namespace BooksMVC_MIST450.Controllers
 {
@@ -13,11 +15,29 @@ namespace BooksMVC_MIST450.Controllers
         }
 
 
-        public IActionResult Index()
+        public IActionResult Index() //Displays all the books
         {
             var booklist = _context.Books.ToList(); //Fetches a list of books from the books table 
-            
+
             return View(booklist); //we are passing booklist to the view. "the view" is the page that will be displayed to the user 
         }
+
+        [HttpGet]
+        public IActionResult Create() //Create a new book record. IActionResult is the return statement (the type of result that the action method returns). Create is a action method
+        {
+            return View(); //returns the view for creating a new book. A form that looks like the Model properties (Title, Description, Author, DatePublished, Genre, Price)
+        }
+
+
+        [HttpPost]
+        public IActionResult Create(Book bookObj) //This is action method save the creation of the book
+        {
+            _context.Books.Add(bookObj); //Adds the new book object to the books table in the database
+            _context.SaveChanges(); //Saves the changes to the database
+            
+            return RedirectToAction("Index");
+        }
+        
+
     }
 }

@@ -1,0 +1,114 @@
+@model Book
+
+<div class="container card px-5 shadow-lg col-md-8">
+
+    <h1>Add New Book</h1>
+
+    <form asp-action="Create">
+
+        <div class="row mb-3">
+            <label asp-for="Title" class="col-md-2- col-form-label"></label>
+
+            <div class="col-md-10">
+
+                <input asp-for="Title" class="form-control" />
+                
+            
+            </div>
+
+
+        </div>
+
+
+
+        <div class="row mb-3">
+            <label asp-for="Author" class="col-md-2- col-form-label"></label>
+
+            <div class="col-md-10">
+                
+                <input asp-for="Author" class="form-control" />
+                
+            
+            </div>
+
+
+        </div>
+
+
+        <div class="row mb-3">
+            <label asp-for="Description" class="col-md-2- col-form-label"></label>
+
+            <div class="col-md-10">
+                
+                <input asp-for="Description" class="form-control" />
+                
+            
+            </div>
+
+
+        </div>
+
+
+
+        <div class="row mb-3">
+            <label asp-for="DatePublished" class="col-md-2- col-form-label"></label>
+
+            <div class="col-md-10">
+                
+                <input asp-for="DatePublished" class="form-control" />
+                
+            
+            </div>
+
+
+        </div>
+
+
+        <div class="row mb-3">
+            <label asp-for="Genre" class="col-md-2- col-form-label"></label>
+
+            <div class="col-md-10">
+                
+                <input asp-for="Genre" class="form-control" />
+                
+            
+            </div>
+
+
+        </div>
+
+
+
+        <div class="row mb-3">
+            <label asp-for="Price" class="col-md-2- col-form-label"></label>
+
+            <div class="col-md-10">
+                
+                <input asp-for="Price" class="form-control" />
+                
+            
+            </div>
+
+
+        </div>
+
+
+        <div class="row mb-3">
+
+            <button type="submit" class="btn btn-outline-success w-100">Save</button>
+
+
+        </div>
+
+            
+
+
+    </form>
+
+
+
+
+
+
+    
+</div>

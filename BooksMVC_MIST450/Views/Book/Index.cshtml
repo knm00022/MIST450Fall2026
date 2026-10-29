@@ -1,7 +1,44 @@
-@*
-    Description: Index view for the Book controller
- *@
+@model List<Book> //Defines what kinda of data we are going to work with 
 
-@{
+<div class="container">
+
+    <div class="text-end">
+        <a asp-controller="Book" asp-action="Create" class="btn btn-primary">Create New Book</a>
+    </div>
+
+</div>
+
+
+<h1>Books</h1>
+
+<table class="table table-bordered table-striped"> 
+    <thead> 
+        <tr> 
+            <th>Book Name</th>
+            <th>Description</th>
+            <th>Author</th>
+            <th>Date Published</th>
+            <th>Genre</th>
+            <th>Price</th>
+
+        </tr> 
     
-}
+    </thead>
+
+    <tbody> 
+
+        @foreach(Book bk in Model) //loop through each book in the model. //@ means C# code within the HTML
+        {
+            <tr>    
+                <td>@bk.Title</td>
+                <td>@bk.Description</td>
+                <td>@bk.Author</td>
+                <td>@bk.DatePublished.ToShortDateString()</td>
+                <td>@bk.Genre</td>
+                <td>@string.Format("{0:c}", bk.Price)</td>
+            </tr>
+        }
+
+    <tbody>
+
+</table>
