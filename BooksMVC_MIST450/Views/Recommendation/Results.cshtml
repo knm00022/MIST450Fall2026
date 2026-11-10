@@ -1,0 +1,137 @@
+@model BooksMVC_MIST450.Models.RecommendationViewModel
+
+@{
+    ViewData["Title"] = "Your Book Recommendations";
+}
+
+<div class="container mt-5">
+
+    <div class="text-center mb-4">
+        <h1>Your Book Recommendations</h1>
+        <h4 class="text-muted">
+            Weather in @Model.SelectedCity
+        </h4>
+    </div>
+
+    <!-- Weather Information -->
+    <div class="card shadow p-4 mb-4">
+        <h3>Weather Forecast</h3>
+
+        <p>
+            <strong>City:</strong>
+            @Model.Weather.City
+        </p>
+
+        <p>
+            <strong>Temperature:</strong>
+            @Model.Weather.Temperature °@Model.Weather.TemperatureUnit
+        </p>
+
+        <p>
+            <strong>Weather Conditions:</strong>
+            @Model.Weather.WeatherCondition
+        </p>
+
+        <p>
+            <strong>Precipitation Probability:</strong>
+            @(Model.Weather.PrecipitationProbability.HasValue
+                ? $"{Model.Weather.PrecipitationProbability}%"
+                : "Unavailable")
+        </p>
+
+        <p>
+            <strong>Wind Speed:</strong>
+            @Model.Weather.WindSpeed
+        </p>
+
+        <p>
+            <strong>Forecast Date:</strong>
+            @Model.Weather.ForecastDate.ToShortDateString()
+        </p>
+    </div>
+
+    <!-- Recommended Genres -->
+    <div class="card shadow p-4 mb-4">
+        <h3>Recommended Genres</h3>
+
+        @if (Model.RecommendedGenres.Any())
+        {
+            <ul>
+                @foreach (var genre in Model.RecommendedGenres)
+                {
+                    <li>@genre</li>
+                }
+            </ul>
+        }
+        else
+        {
+            <p>No recommended genres were found.</p>
+        }
+    </div>
+
+    <!-- Recommended Books -->
+    <div class="card shadow p-4 mb-4">
+        <h3>Recommended Books</h3>
+
+        @if (Model.RecommendedBooks.Any())
+        {
+            <div class="row">
+                @foreach (var book in Model.RecommendedBooks)
+                {
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+
+                                <h5 class="card-title">
+                                    @book.Title
+                                </h5>
+
+                                <p>
+                                    <strong>Author:</strong>
+                                    @book.Author
+                                </p>
+
+                                <p>
+                                    <strong>Genre:</strong>
+                                    @book.Genre
+                                </p>
+
+                                <p>
+                                    <strong>Description:</strong>
+                                    @book.Description
+                                </p>
+
+                                <p>
+                                    <strong>Published:</strong>
+                                    @book.DatePublished.ToShortDateString()
+                                </p>
+
+                                <p>
+                                    <strong>Price:</strong>
+                                    @book.Price.ToString("C")
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <p>
+                No books were found for the recommended genres.
+            </p>
+        }
+    </div>
+
+    <div class="text-center">
+        <a asp-controller="Recommendation"
+           asp-action="Index"
+           class="btn btn-primary">
+            Search Another City
+        </a>
+    </div>
+
+</div>
+

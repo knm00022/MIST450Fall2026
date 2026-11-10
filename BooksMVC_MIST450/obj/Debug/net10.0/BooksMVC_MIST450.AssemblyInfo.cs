@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BooksMVC_MIST450")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b8e0d7ae7023cc05592e435507c83d42c5b33d42")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+05497c4acb96c5d7b363db30437884c69a76f35f")]
 [assembly: System.Reflection.AssemblyProductAttribute("BooksMVC_MIST450")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BooksMVC_MIST450")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

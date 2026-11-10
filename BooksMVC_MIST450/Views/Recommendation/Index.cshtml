@@ -1,0 +1,46 @@
+@{
+    ViewData["Title"] = "Weather-Based Book Recommendations";
+}
+
+<div class="container mt-5">
+    <div class="text-center">
+        <h1>Weather-Based Book Recommendations</h1>
+
+        <p class="lead">
+            Discover your next great read based on the weather
+            in your favorite city!
+        </p>
+    </div>
+
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-6">
+
+            <div class="card shadow p-4">
+                <form asp-controller="Recommendation"
+                      asp-action="Results"
+                      method="post">
+
+                    <div class="mb-3">
+                        <label for="city" class="form-label">
+                            Enter a City
+                        </label>
+
+                        <input type="text"
+                               id="city"
+                               name="city"
+                               class="form-control"
+                               placeholder="Example: Washington, DC"
+                               required />
+                    </div>
+
+                    <button type="submit"
+                            class="btn btn-primary w-100">
+                        Get Book Recommendations
+                    </button>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
