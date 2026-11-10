@@ -36,6 +36,10 @@
                 <td>@bk.DatePublished.ToShortDateString()</td>
                 <td>@bk.Genre</td>
                 <td>@string.Format("{0:c}", bk.Price)</td>
+
+                <td>
+                    <a asp-controller="Book" asp-action="Details"  asp-route-id="@bk.BookId">View Details</a>
+                </td>
             </tr>
         }
 

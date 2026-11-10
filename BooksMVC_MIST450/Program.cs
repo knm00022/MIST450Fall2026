@@ -32,7 +32,7 @@ namespace BooksMVC_MIST450.Data
             app.MapStaticAssets();
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}")
+                pattern: "{controller=Book}/{action=Index}/{id?}")
                 .WithStaticAssets();
 
             app.Run();

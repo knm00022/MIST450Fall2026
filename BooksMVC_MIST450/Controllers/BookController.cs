@@ -2,7 +2,6 @@ using BooksMVC_MIST450.Models;
 using BooksMVC_MIST450.Data;
 using Microsoft.AspNetCore.Mvc;
 
-
 namespace BooksMVC_MIST450.Controllers
 {
     public class BookController : Controller
@@ -10,7 +9,7 @@ namespace BooksMVC_MIST450.Controllers
         private BooksDbContext _context; //this one persis throughout the class.  this is a private field that will be used to store the BooksDbContext object that is passed in through the constructor. This allows us to use the context object to interact with the database.
 
         public BookController(BooksDbContext context) //Dependency Injection - this is a constructor that takes in a BooksDbContext object and saves it as a private field. This allows us to use the context object to interact with the database.
-        {   
+        {
             _context = context; //context exists only wihtin the body of this method. this is where we are saving the context object that is passed in through the constructor as a private field. This allows us to use the context object to interact with the database.  
         }
 
@@ -26,7 +25,7 @@ namespace BooksMVC_MIST450.Controllers
         public IActionResult Create() //Create a new book record. IActionResult is the return statement (the type of result that the action method returns). Create is a action method
         {
             return View(); //returns the view for creating a new book. A form that looks like the Model properties (Title, Description, Author, DatePublished, Genre, Price)
-        }
+        } //blank form
 
 
         [HttpPost]
@@ -34,10 +33,20 @@ namespace BooksMVC_MIST450.Controllers
         {
             _context.Books.Add(bookObj); //Adds the new book object to the books table in the database
             _context.SaveChanges(); //Saves the changes to the database
-            
+
             return RedirectToAction("Index");
+        } //form that gets submitted
+
+
+        public IActionResult Details(int id) //Displays the details of a book
+        {
+            var retrievedBook = _context.Books.Find(id); //Find the book which as the ID that was passed in and save it in the retrievedBook variable
+
+            return View(retrievedBook); //Pass the retrievedBook variable to the view. This will display the details of the book
+
+            
         }
-        
+
 
     }
 }
