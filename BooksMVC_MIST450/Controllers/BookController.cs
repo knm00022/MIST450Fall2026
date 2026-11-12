@@ -44,7 +44,31 @@ namespace BooksMVC_MIST450.Controllers
 
             return View(retrievedBook); //Pass the retrievedBook variable to the view. This will display the details of the book
 
-            
+
+        }
+
+        public IActionResult Edit(int id) //Displays the edit form for a book
+        {
+            //talk to the database and fetech  the book that the user would like to edit
+            var retrievedBook = _context.Books.Find(id);
+
+
+            return View(retrievedBook); //Pass the retrievedBook variable to the view. This will display the details of the book
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(int id,[Bind("BookId, Description, Title, Author, DatePublished, Genre, Price")]Book updatedBook) //This is action method save the creation of the book
+        {
+            //talk to the database and save the dara that the user has provided
+            if (ModelState.IsValid) //check to see if the model is valid
+            {
+                _context.Books.Update(updatedBook); //Updates the book object in the books table in the database
+                _context.SaveChanges(); //Saves the changes to the database
+
+            }
+
+            return RedirectToAction("Index");
         }
 
 
